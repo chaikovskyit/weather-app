@@ -1,0 +1,11 @@
+@import '../../styles/colors';
+.info {
+	&__top {
+		font-size: 25px;
+		margin-bottom: 5px;
+	}
+	&__bottom {
+		font-size: 18px;
+		color: $gray;
+	}
+}

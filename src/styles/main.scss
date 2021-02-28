@@ -11,7 +11,9 @@ body {
 	color: $white;
 	font-family: 'Open Sans', sans-serif;
 
-	pre {
-		border: 2px solid white;
+	.today-weather {
+		width: 100%;
+		display: flex;
+		align-items: center;
 	}
 }

@@ -5,10 +5,15 @@ export const getUrlsByCoords = (location) => {
 };
 
 export const getFormatedWeatherState = (weatherData) => {
-  console.log(weatherData);
   const { list, city } = weatherData;
   const currentWeather = list.slice(0, 8);
   const rest = list.slice(8, list.length);
   const nextDays = rest.filter((obj, i) => i % 8 === 0);
   return { currentWeather, nextDays, city };
 };
+
+export const getImageURL = (id, scale = 4) => `http://openweathermap.org/img/wn/${id}@${scale}x.png`;
+
+export const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+
+export const round = (number) => Math.floor(+number);
