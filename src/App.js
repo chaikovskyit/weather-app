@@ -4,6 +4,7 @@ import LocationAndDate from './components/LocationAndDate/LocationAndDate';
 import { getUrlsByCoords, getFormatedWeatherState, round } from './utils/helpers';
 import CurrentTemperature from './components/CurrentTemperature/CurrentTemperature';
 import CurrentStats from './components/CurrentStats/CurrentStats';
+import HourlyWeatherList from './components/HourlyWeatherList/HourlyWeatherList';
 
 const App = () => {
   const [weather, setWeather] = useState({
@@ -14,8 +15,7 @@ const App = () => {
 
   const getWeather = async (location) => {
     const url = getUrlsByCoords(location);
-    // eslint-disable-next-line no-undef
-    const res = await fetch(url);
+    const res = await window.fetch(url);
     const data = await res.json();
     setWeather(getFormatedWeatherState(data));
   };
@@ -30,7 +30,7 @@ const App = () => {
     };
     getData();
   }, []);
-  // eslint-disable-next-line no-unused-vars
+
   const { currentWeather, nextDays, city } = weather;
   if (!currentWeather.length) {
     return null;
@@ -61,6 +61,11 @@ const App = () => {
           sunrise={moment.unix(sunrise).format('LT')}
           sunset={moment.unix(sunset).format('LT')}
         />
+        <div className="future-weather-container mt-4 w-100 container">
+          <p>Todays weather</p>
+          <HourlyWeatherList futureWeather={currentWeather} />
+        </div>
+
       </div>
     </div>
   );
