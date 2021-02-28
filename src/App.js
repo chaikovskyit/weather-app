@@ -1,12 +1,16 @@
 import React from 'react';
 
-const App = () => (
+const App = () => {
+  console.log(process.env);
 
-  <div className="App">
-    <h1>Hello app</h1>
-    <p>Lorem50</p>
+  return (
 
-  </div>
-);
+    <div className="App">
+      <h1>Hello app</h1>
+      <p>Lorem50</p>
+
+    </div>
+  );
+};
 
 export default App;

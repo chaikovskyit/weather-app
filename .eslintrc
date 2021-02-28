@@ -19,14 +19,7 @@
       "error",
       "never"
     ],
-    "no-console": [
-      "error",
-      {
-        "allow": [
-          "error"
-        ]
-      }
-    ],
+    "no-console": "warn",
     "react/no-danger": 0,
     "react/prop-types": "off",
     "no-plusplus": "off",
