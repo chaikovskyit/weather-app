@@ -3,18 +3,18 @@ import './currentStats.scss';
 import Info from '../Info/Info';
 
 const CurrentStats = ({
-  hightTemp, lowTemp, wind, sunrise, sunset,
+  hightTemp, lowTemp, wind, humidity, sunrise, sunset,
 }) => (
   <div className="current-stats col-md-6">
-    <div className="d-flex justify-content-around">
-      <Info topStr={23} bottomStr="Hight" withDegSymbol />
-      <Info topStr={23} bottomStr="Hight" withDegSymbol />
-      <Info topStr={23} bottomStr="Hight" withDegSymbol />
+    <div className="row justify-content-center">
+      <Info topStr={hightTemp} bottomStr="High" withDegSymbol className="col-2" />
+      <Info topStr={wind} bottomStr="Wind" className="col-5" />
+      <Info topStr={sunrise} bottomStr="Sunrice" className="col-5" />
     </div>
-    <div className="d-flex justify-content-around">
-      <Info topStr={23} bottomStr="Hight" withDegSymbol />
-      <Info topStr={23} bottomStr="Hight" withDegSymbol />
-      <Info topStr={23} bottomStr="Hight" withDegSymbol />
+    <div className="row justify-content-center">
+      <Info topStr={lowTemp} bottomStr="Low" withDegSymbol className="col-2" />
+      <Info topStr={humidity} bottomStr="Humidity" className="col-5" />
+      <Info topStr={sunset} bottomStr="Sunset" className="col-5" />
     </div>
   </div>
 );

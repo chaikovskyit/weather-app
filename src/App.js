@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 import LocationAndDate from './components/LocationAndDate/LocationAndDate';
-import { getUrlsByCoords, getFormatedWeatherState } from './utils/helpers';
+import { getUrlsByCoords, getFormatedWeatherState, round } from './utils/helpers';
 import CurrentTemperature from './components/CurrentTemperature/CurrentTemperature';
 import CurrentStats from './components/CurrentStats/CurrentStats';
 
@@ -37,8 +37,9 @@ const App = () => {
   }
   const currentData = weather.currentWeather[0];
   const date = moment().format('dddd Do MMMM');
-  const { main, weather: weatherData } = currentData;
-  console.log(weatherData);
+  const { main, weather: weatherData, wind } = currentData;
+  const { temp_max: tempMax, temp_min: tempMin, humidity } = main;
+  const { sunrise, sunset } = city;
   return (
     <div className="App container">
       <LocationAndDate
@@ -52,7 +53,14 @@ const App = () => {
           description={weatherData[0].description}
           icon={weatherData[0].icon}
         />
-        <CurrentStats />
+        <CurrentStats
+          hightTemp={round(tempMax)}
+          lowTemp={round(tempMin)}
+          wind={`${wind.speed} km/h`}
+          humidity={`${humidity}%`}
+          sunrise={moment.unix(sunrise).format('LT')}
+          sunset={moment.unix(sunset).format('LT')}
+        />
       </div>
     </div>
   );
