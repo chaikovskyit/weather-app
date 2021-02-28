@@ -20,6 +20,7 @@
       "never"
     ],
     "no-console": "warn",
+    "no-unused-vars": "warn",
     "react/no-danger": 0,
     "react/prop-types": "off",
     "no-plusplus": "off",

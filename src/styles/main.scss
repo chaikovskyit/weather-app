@@ -5,4 +5,13 @@ body {
 	padding: 0;
 	-webkit-font-smoothing: antialiased;
 	box-sizing: border-box;
+	background: linear-gradient(to bottom, rgb(43, 50, 178) 0%, rgb(20, 136, 204) 100%);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	color: $white;
+	font-family: 'Open Sans', sans-serif;
+
+	pre {
+		border: 2px solid white;
+	}
 }
