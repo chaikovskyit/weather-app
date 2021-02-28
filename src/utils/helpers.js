@@ -5,8 +5,10 @@ export const getUrlsByCoords = (location) => {
 };
 
 export const getFormatedWeatherState = (weatherData) => {
-  const currentWeather = weatherData.slice(0, 8);
-  const rest = weatherData.slice(8, weatherData.length);
+  console.log(weatherData);
+  const { list, city } = weatherData;
+  const currentWeather = list.slice(0, 8);
+  const rest = list.slice(8, list.length);
   const nextDays = rest.filter((obj, i) => i % 8 === 0);
-  return { currentWeather, nextDays };
+  return { currentWeather, nextDays, city };
 };
