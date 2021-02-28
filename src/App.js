@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getUrlsByCoords } from './utils/helpers';
+import { getUrlsByCoords, getFormatedWeatherState } from './utils/helpers';
 
 const App = () => {
   const [weather, setWeather] = useState({});
@@ -9,7 +9,7 @@ const App = () => {
     // eslint-disable-next-line no-undef
     const res = await fetch(url);
     const data = await res.json();
-    setWeather(data);
+    setWeather(getFormatedWeatherState(data.list));
   };
 
   const getCoordinates = async () => {
@@ -23,7 +23,6 @@ const App = () => {
     getData();
   }, []);
 
-  console.log(weather);
   return (
     <div className="App">
       {weather.list && weather.list.map((w) => (
