@@ -1,6 +1,7 @@
 export const getUrlsByCoords = (location) => {
   const { coords } = location;
   const { latitude, longitude } = coords;
+
   return `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
 };
 
@@ -17,3 +18,9 @@ export const getImageURL = (id, scale = 4) => `http://openweathermap.org/img/wn/
 export const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
 export const round = (number) => Math.floor(+number);
+
+export const getWeatherByCityName = async (value) => {
+  const apiURL = await
+  window.fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${value}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`);
+  const dataByCityName = await apiURL.json();
+};

@@ -1,0 +1,16 @@
+@import '../../styles/colors';
+
+.form {
+	float: right;
+	border-radius: 10px;
+	width: 30%;
+	border: 2px solid $white;
+	padding: 10px;
+	cursor: pointer;
+
+	&__input {
+		background-color: rgba($color: #6691e0, $alpha: 0.1);
+	}
+	&__button {
+	}
+}
