@@ -8,7 +8,7 @@ const Form = ({
     e.preventDefault();
     await submitHandler(inputValue);
   };
-
+  console.log('%cThis is a green text', 'color:green; font-size:50px');
   return (
     <form className="search-form mb-3" onSubmit={(e) => onSubmit(e)}>
       <input
