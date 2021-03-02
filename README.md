@@ -16,7 +16,7 @@ Install npm packeges
 npm install
 ```
 
-In project root derictory create .env file with env variable called REACT_APP_WEATHER_API_KEY. This variable will store your OpenWeatherApi credentials
+In project root directory create .env file with env variable called REACT_APP_WEATHER_API_KEY. This variable will store your OpenWeatherApi credentials
 
 Something like this:
 
