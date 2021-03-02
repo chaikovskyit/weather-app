@@ -28,7 +28,7 @@ const App = () => {
     const data = await res.json();
 
     setWeather(getFormatedWeatherState(data));
-    // setIsLoading(false);
+    setIsLoading(false);
   };
 
   const getNewWeather = async () => {
