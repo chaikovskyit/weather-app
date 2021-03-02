@@ -10,6 +10,7 @@ import HourlyWeatherList from './components/HourlyWeatherList/HourlyWeatherList'
 import Loader from './components/Loader/Loader';
 import Form from './components/Form/Form';
 import Error from './components/Error/Error';
+import NextDaysWeatherList from './components/NextDaysWeatherList/NextDaysWeatherList';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -74,22 +75,26 @@ const App = () => {
 
   return (
     <>
-      <div className="app-container">
-        <Form
-          submitHandler={getNewWeather}
-          changeHandler={changeHandler}
-          inputValue={value}
-        />
+      <div className="app-container container">
+        <header>
+          {!isLoading && !error && (
+            <LocationAndDate
+              country={city.country}
+              city={city.name}
+              date={date}
+            />
+          )}
+          <Form
+            submitHandler={getNewWeather}
+            changeHandler={changeHandler}
+            inputValue={value}
+          />
+        </header>
         {!isLoading && error && (
           <Error />
         )}
         {!isLoading && !error && (
         <div>
-          <LocationAndDate
-            country={city.country}
-            city={city.name}
-            date={date}
-          />
           <div className="row">
             <CurrentTemperature
               temperature={main.temp}
@@ -104,12 +109,13 @@ const App = () => {
               sunrise={moment.unix(sunrise).format('LT')}
               sunset={moment.unix(sunset).format('LT')}
             />
-            <div className="future-weather-container mt-4 w-100 container">
+            <div className="future-weather-container mt-4 w-100 ">
               <p>Todays weather</p>
               <HourlyWeatherList futureWeather={currentWeather} />
             </div>
 
           </div>
+          <NextDaysWeatherList nextDays={nextDays} />
         </div>
         )}
       </div>

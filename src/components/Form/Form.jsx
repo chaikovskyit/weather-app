@@ -8,15 +8,15 @@ const Form = ({ submitHandler, changeHandler, inputValue }) => {
   };
 
   return (
-    <form className="form input-group mb-3" onSubmit={(e) => onSubmit(e)}>
+    <form className="search-form mb-3" onSubmit={(e) => onSubmit(e)}>
       <input
         type="text"
-        className="form-control"
+        className="search-form__input"
         placeholder="search city"
         onChange={changeHandler}
       />
       <button
-        className="btn btn-outline-secondary"
+        className="search-form__button"
         type="submit"
       >
         &#128269;

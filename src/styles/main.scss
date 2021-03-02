@@ -11,6 +11,14 @@ body {
 	color: $white;
 	font-family: 'Open Sans', sans-serif;
 
+	header {
+		width: 100%;
+		height: 50px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
 	.today-weather {
 		width: 100%;
 		display: flex;
