@@ -1,0 +1,13 @@
+@import '../../styles/colors';
+
+.item {
+	background: $blue;
+	border-radius: 5px;
+	margin-bottom: 20px;
+
+	.column {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}

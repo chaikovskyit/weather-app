@@ -14,7 +14,7 @@ import NextDaysWeatherList from './components/NextDaysWeatherList/NextDaysWeathe
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(' ');
   const [error, setError] = useState(false);
   const [weather, setWeather] = useState({
     currentWeather: [],

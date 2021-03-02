@@ -13,7 +13,7 @@ body {
 
 	header {
 		width: 100%;
-		height: 50px;
+		min-height: 50px;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -26,7 +26,7 @@ body {
 	}
 	.future-weather-container {
 		margin-top: 50px;
-		height: 300px;
+		margin-bottom: 20px;
 	}
 	.loader {
 		display: flex;

@@ -1,2 +1,22 @@
+@import '../../styles/colors';
+@import '../../styles/breakpoints';
 .hourly-weather-list {
+	.swiper-container {
+		padding-bottom: 40px;
+		.swiper-button-next {
+			color: $white;
+			right: 0px;
+			top: 40%;
+		}
+		.swiper-button-prev {
+			color: $white;
+			left: 0px;
+			top: 40%;
+		}
+		.swiper-pagination {
+			.swiper-pagination-bullet {
+				background: $white;
+			}
+		}
+	}
 }
