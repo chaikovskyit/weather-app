@@ -1,7 +1,9 @@
 import React from 'react';
 import './form.scss';
 
-const Form = ({ submitHandler, changeHandler, inputValue }) => {
+const Form = ({
+  submitHandler, changeHandler, inputValue,
+}) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     await submitHandler(inputValue);

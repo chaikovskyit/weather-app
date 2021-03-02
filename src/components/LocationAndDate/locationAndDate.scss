@@ -1,7 +1,9 @@
 .location-and-date {
 	margin-top: 20px;
 	margin-bottom: 20px;
+
 	&__city {
+		white-space: nowrap;
 		font-size: 30px;
 		font-weight: 700;
 	}
