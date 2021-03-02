@@ -10,13 +10,13 @@ Clone repo on your computer:
 git clone git@github.com:chaikovskyit/weather-app.git
 ```
 
-Install npm pages
+Install npm packeges
 
 ```
 npm install
 ```
 
-Create .env file with env variable with name REACT_APP_WEATHER_API_KEY. This variable have to store your OpenWeatherApi credentials
+In project root derictory create .env file with env variable called REACT_APP_WEATHER_API_KEY. This variable will store your OpenWeatherApi credentials
 
 Something like this:
 
