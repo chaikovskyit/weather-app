@@ -3,7 +3,7 @@ import loader1 from '../../utils/images/svg/loader1.svg';
 
 const Loader = () => (
   <div className="loader">
-    <img src={loader1} alt="loader icon" />
+    <img className="loader__icon" src={loader1} alt="loader icon" />
   </div>
 );
 

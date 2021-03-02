@@ -16,4 +16,18 @@ body {
 		display: flex;
 		align-items: center;
 	}
+	.future-weather-container {
+		margin-top: 50px;
+		height: 300px;
+	}
+	.loader {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding-top: 300px;
+
+		&__icon {
+			width: 200px;
+		}
+	}
 }

@@ -1,25 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 import LocationAndDate from './components/LocationAndDate/LocationAndDate';
-import { getUrlsByCoords, getFormatedWeatherState, round } from './utils/helpers';
+import {
+  getUrlsByCoords, getFormatedWeatherState, round, getUrlByCityName,
+} from './utils/helpers';
 import CurrentTemperature from './components/CurrentTemperature/CurrentTemperature';
 import CurrentStats from './components/CurrentStats/CurrentStats';
 import HourlyWeatherList from './components/HourlyWeatherList/HourlyWeatherList';
 import Loader from './components/Loader/Loader';
 import Form from './components/Form/Form';
+import Error from './components/Error/Error';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [value, setValue] = useState('');
-  console.log(value);
-
+  const [error, setError] = useState(false);
   const [weather, setWeather] = useState({
     currentWeather: [],
     nextDays: [],
     city: {},
   });
 
-  const getWeather = async (location) => {
+  const getInitialWeather = async (location) => {
     const url = getUrlsByCoords(location);
     const res = await window.fetch(url);
     const data = await res.json();
@@ -28,8 +30,23 @@ const App = () => {
     setIsLoading(false);
   };
 
+  const getNewWeather = async () => {
+    setError(false);
+    setIsLoading(true);
+    const url = getUrlByCityName(value);
+    const res = await window.fetch(url);
+    const data = await res.json();
+    if (+data.cod === 404) {
+      setIsLoading(false);
+      setError(true);
+      return;
+    }
+    setWeather(getFormatedWeatherState(data));
+    setIsLoading(false);
+  };
+
   const getCoordinates = async () => {
-    window.navigator.geolocation.getCurrentPosition(getWeather);
+    window.navigator.geolocation.getCurrentPosition(getInitialWeather);
   };
 
   useEffect(() => {
@@ -58,8 +75,15 @@ const App = () => {
   return (
     <>
       <div className="app-container">
-        <Form changeHandler={changeHandler} />
-        {!isLoading && (
+        <Form
+          submitHandler={getNewWeather}
+          changeHandler={changeHandler}
+          inputValue={value}
+        />
+        {!isLoading && error && (
+          <Error />
+        )}
+        {!isLoading && !error && (
         <div>
           <LocationAndDate
             country={city.country}
