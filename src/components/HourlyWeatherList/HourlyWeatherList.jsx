@@ -18,18 +18,15 @@ const HourlyWeatherList = ({ futureWeather }) => (
       spaceBetween={1}
       slidesPerView={4}
     >
-      {futureWeather.map((item) => {
-        const { weather, dt: hour, main } = item;
-        return (
-          <SwiperSlide>
-            <HourlyWeatherItem
-              icon={weather[0].icon}
-              temperature={main.temp}
-              hour={hour}
-            />
-          </SwiperSlide>
-        );
-      })}
+      {futureWeather.map(({ weather, dt: hour, main }) => (
+        <SwiperSlide key={hour}>
+          <HourlyWeatherItem
+            icon={weather[0].icon}
+            temperature={main.temp}
+            hour={hour}
+          />
+        </SwiperSlide>
+      ))}
     </Swiper>
   </div>
 );

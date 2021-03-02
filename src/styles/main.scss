@@ -28,14 +28,4 @@ body {
 		margin-top: 50px;
 		margin-bottom: 20px;
 	}
-	.loader {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		padding-top: 300px;
-
-		&__icon {
-			width: 200px;
-		}
-	}
 }

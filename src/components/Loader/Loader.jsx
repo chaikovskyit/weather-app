@@ -1,5 +1,6 @@
 import React from 'react';
 import loader1 from '../../utils/images/svg/loader1.svg';
+import './loader.scss';
 
 const Loader = () => (
   <div className="loader">
